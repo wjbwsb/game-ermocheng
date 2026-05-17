@@ -11,11 +11,13 @@ config_version=5
 [application]
 
 config/name="ermocheng_forward"
+run/main_scene="uid://cse8j4nug50od"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_height=840
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="canvas_items"

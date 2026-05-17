@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cpbrly8or27e2"]
+
+[ext_resource type="Script" uid="uid://pxvig7k7q4lo" path="res://player/spricts/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dwohgwb5dkjyl" path="res://player/states/fall.gd" id="2_qjkh3"]
+[ext_resource type="Script" uid="uid://di5locjtboypw" path="res://player/states/idle.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://cq1v601dvrr4l" path="res://player/states/jump.gd" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://cqx6w2r6vnlkp" path="res://player/states/run.gd" id="3_g1dw6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
+size = Vector2(18, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
+size = Vector2(16, 46)
+
+[node name="Player" type="CharacterBody2D" unique_id=1054229997]
+script = ExtResource("1_oul6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903588596]
+position = Vector2(0, -24)
+texture = SubResource("PlaceholderTexture2D_kqu6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=617839559]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_kqu6x")
+debug_color = Color(0, 0.6, 0.69803923, 0.5019608)
+
+[node name="States" type="Node" parent="." unique_id=548950499]
+
+[node name="Fall" type="Node" parent="States" unique_id=808888680]
+unique_name_in_owner = true
+script = ExtResource("2_qjkh3")
+
+[node name="Jump" type="Node" parent="States" unique_id=27009561]
+unique_name_in_owner = true
+script = ExtResource("2_yw30f")
+
+[node name="Idle" type="Node" parent="States" unique_id=670359328]
+unique_name_in_owner = true
+script = ExtResource("2_rkbax")
+
+[node name="Run" type="Node" parent="States" unique_id=1359575396]
+unique_name_in_owner = true
+script = ExtResource("3_g1dw6")
+
+[node name="Label" type="Label" parent="." unique_id=914667137]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -76.0
+offset_right = 20.0
+offset_bottom = -53.0
+theme_override_font_sizes/font_size = 9
+text = "label"
+horizontal_alignment = 1
