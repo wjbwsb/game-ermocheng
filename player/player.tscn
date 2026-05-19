@@ -29,6 +29,7 @@ debug_color = Color(0, 0.6, 0.69803923, 0.5019608)
 [node name="Fall" type="Node" parent="States" unique_id=808888680]
 unique_name_in_owner = true
 script = ExtResource("2_qjkh3")
+coyote_time = 0.2
 
 [node name="Jump" type="Node" parent="States" unique_id=27009561]
 unique_name_in_owner = true

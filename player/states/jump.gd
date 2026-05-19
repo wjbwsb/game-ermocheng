@@ -9,7 +9,9 @@ class_name PlayerStateJump extends PlayerState
 func enter() -> void:
 	print("enter! ", name)
 	player.add_jumper_debuger(Color.LIME_GREEN)
-	player.velocity.y -= jump_velocity
+	#player.velocity.y -= jump_velocity
+	player.velocity.y = -jump_velocity
+	
 	
 	pass
 

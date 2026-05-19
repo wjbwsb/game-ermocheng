@@ -22,6 +22,7 @@ var previous_state: PlayerState :
 #region
 var direction : Vector2 = Vector2.ZERO
 var GRAVITY : float = 980
+var GRAVITY_MULITPLIER : float = 1.0
 #endregion
 
 func _ready() -> void:
@@ -37,7 +38,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
-	velocity.y += GRAVITY * _delta
+	velocity.y += GRAVITY * _delta * GRAVITY_MULITPLIER
 	move_and_slide()
 	change_state(current_state.physics_process(_delta))
 	pass
