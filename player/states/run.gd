@@ -4,6 +4,7 @@ class_name PlayerStateRun extends PlayerState
 
 func enter() -> void:
 	print("enter! ", name)
+	player.animation_player.play("run")
 	pass
 
 
@@ -26,6 +27,8 @@ func process(_delta: float) -> PlayerState:
 	#print("delta ", _delta)
 	if player.direction.x == 0:
 		return idle
+	elif player.direction.y > 0.5:
+		return crouch
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:

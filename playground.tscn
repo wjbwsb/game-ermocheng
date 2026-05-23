@@ -13,6 +13,17 @@ height = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(32, 32)
 
+[sub_resource type="Gradient" id="Gradient_rupst"]
+offsets = PackedFloat32Array(0, 0.9958159)
+colors = PackedColorArray(0.21720988, 0.53049827, 1, 1, 0.007843138, 0.10980392, 0.972549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wt17y"]
+gradient = SubResource("Gradient_rupst")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rupst"]
+size = Vector2(64, 64)
+
 [node name="Playground" type="Node2D" unique_id=275000653]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=744186358]
@@ -36,7 +47,7 @@ texture = SubResource("GradientTexture2D_rupst")
 shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1848180065]
-position = Vector2(41, 518.25)
+position = Vector2(37, 558)
 scale = Vector2(7.1249976, 4.0781255)
 texture = SubResource("GradientTexture2D_rupst")
 
@@ -46,8 +57,8 @@ texture = SubResource("GradientTexture2D_rupst")
 shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1972124912]
-position = Vector2(251.68477, 591.2839)
-rotation = 0.550387
+position = Vector2(266, 614)
+rotation = 0.40626365
 scale = Vector2(9.6684, 4.0781255)
 texture = SubResource("GradientTexture2D_rupst")
 
@@ -85,6 +96,19 @@ texture = SubResource("GradientTexture2D_rupst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2DRight/StaticBody2D" unique_id=1170046181]
 shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="OneWayPlatform" type="Sprite2D" parent="." unique_id=356213185]
+position = Vector2(534, 512)
+scale = Vector2(2.694, 0.4)
+texture = SubResource("GradientTexture2D_wt17y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform" unique_id=472370591]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform/StaticBody2D" unique_id=1322122488]
+shape = SubResource("RectangleShape2D_rupst")
+one_way_collision = true
 
 [node name="Player" parent="." unique_id=1054229997 instance=ExtResource("1_rupst")]
 position = Vector2(349, 265)

@@ -2,10 +2,19 @@ class_name Player extends CharacterBody2D
 
 const JUMPER_DEBUGER = preload("uid://bv7yreqkjoqd5") 
 
+
 #region  /// export variable
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var collision_stand: CollisionShape2D = $CollisionShape2DStand
+@onready var collision_crouch: CollisionShape2D = $CollisionShape2DCrouch
+#@onready var one_way_platform_raycast: RayCast2D = $OneWayPlatformRayCast
+@onready var one_way_platform_shapecast: ShapeCast2D = $OneWayPlatformShapeCast
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+#endregion
 
+#region  /// export variable
 @export var move_speed : float = 150
-
+@export var max_fall_velocity : float = 600
 #endregion
 
 #region ///State Mechine Variable
@@ -39,6 +48,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	velocity.y += GRAVITY * _delta * GRAVITY_MULITPLIER
+	velocity.y = clampf(velocity.y, -1000.0, max_fall_velocity)
 	move_and_slide()
 	change_state(current_state.physics_process(_delta))
 	pass
@@ -95,7 +105,12 @@ func update_direction() -> void:
 	var x_aixs = Input.get_axis("left", "right")
 	var y_aixs = Input.get_axis("up", "down")
 	direction = Vector2(x_aixs, y_aixs)
-	#print(direction)
+	
+	if pre_direction.x != direction.x:
+		if direction.x < 0:
+			sprite.flip_h = true
+		elif direction.x > 0:
+			sprite.flip_h = false
 
 
 

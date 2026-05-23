@@ -8,6 +8,8 @@ class_name PlayerStateJump extends PlayerState
 
 func enter() -> void:
 	print("enter! ", name)
+	player.animation_player.play("jump")
+	player.animation_player.pause()
 	player.add_jumper_debuger(Color.LIME_GREEN)
 	#player.velocity.y -= jump_velocity
 	player.velocity.y = -jump_velocity
@@ -32,6 +34,7 @@ func handle_input( event : InputEvent ) -> PlayerState:
 	
 
 func process(_delta: float) -> PlayerState:
+	set_jump_frame()
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:
@@ -42,3 +45,9 @@ func physics_process(_delta: float) -> PlayerState:
 		
 	player.velocity.x = player.direction.x * player.move_speed
 	return next_state
+
+
+func set_jump_frame() -> void:
+	var frame : float = remap(player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5)
+	player.animation_player.seek(frame, true)
+	pass

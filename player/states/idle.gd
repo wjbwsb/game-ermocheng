@@ -2,6 +2,7 @@ class_name PlayerStateIdle extends PlayerState
 
 func enter() -> void:
 	print("enter! ", name, " 播放动画")
+	player.animation_player.play("idle")
 	pass
 
 
@@ -22,6 +23,8 @@ func process(_delta: float) -> PlayerState:
 	#print("delta ", _delta)
 	if player.direction.x != 0:
 		return run
+	elif player.direction.y > 0.5:
+		return crouch
 	
 	return next_state
 
