@@ -14,6 +14,12 @@ func enter() -> void:
 	#player.velocity.y -= jump_velocity
 	player.velocity.y = -jump_velocity
 	
+	# 检查是否为 buffer jump
+	if player.previous_state == fall  and not Input.is_action_pressed("jump"):
+		await get_tree().physics_frame
+		player.velocity.y *= 0.5
+		player.change_state(fall)
+		pass
 	
 	pass
 

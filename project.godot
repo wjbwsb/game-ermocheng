@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ermocheng_forward"
-run/main_scene="uid://cse8j4nug50od"
+run/main_scene="uid://bsu8ql1h400fx"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

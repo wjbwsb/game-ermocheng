@@ -38,6 +38,7 @@ func _ready() -> void:
 
 	# init state
 	initialize_state()
+	#Engine.time_scale = 0.5
 	pass
 
 

@@ -16,7 +16,7 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	if Input.is_action_just_pressed("jump"):
 		print("press jump")
 		return jump
-	return next_state
+	return null
 	
 
 func process(_delta: float) -> PlayerState:
@@ -26,7 +26,7 @@ func process(_delta: float) -> PlayerState:
 	elif player.direction.y > 0.5:
 		return crouch
 	
-	return next_state
+	return null
 
 func physics_process(_delta: float) -> PlayerState:
 	player.velocity.x = 0

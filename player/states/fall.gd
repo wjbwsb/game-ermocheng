@@ -27,6 +27,7 @@ func exit() -> void:
 	print("exit! ", name)
 	# 播放动画
 	player.GRAVITY_MULITPLIER = 1.0
+	buffer_timer = 0
 	pass
 
 
@@ -48,6 +49,7 @@ func process(_delta: float) -> PlayerState:
 func physics_process(_delta: float) -> PlayerState:
 	if player.is_on_floor():
 		player.add_jumper_debuger(Color.RED)
+		#if buffer_timer > 0 and Input.is_action_pressed("jump"):
 		if buffer_timer > 0:
 			return jump
 		return idle
