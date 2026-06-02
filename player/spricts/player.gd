@@ -35,10 +35,14 @@ var GRAVITY_MULITPLIER : float = 1.0
 #endregion
 
 func _ready() -> void:
-
+	
+	if get_tree().get_first_node_in_group("Player") != self:
+		self.queue_free()
 	# init state
 	initialize_state()
 	#Engine.time_scale = 0.5
+	# 将player 节点放到root下面去
+	self.call_deferred("reparent", get_tree().root)
 	pass
 
 

@@ -1,0 +1,30 @@
+[gd_scene format=4 uid="uid://eylgdofwlxrh"]
+
+[ext_resource type="Script" uid="uid://csyrsgmnk146e" path="res://general/scripts/level_bounds.gd" id="1_vv2jw"]
+[ext_resource type="PackedScene" uid="uid://cumo6y6ijtiri" path="res://general/level_transition/level_transition.tscn" id="2_biydo"]
+[ext_resource type="TileSet" uid="uid://ck3mh05n868r3" path="res://levels/tilesets/forgotten_forest.tres" id="2_vv2jw"]
+
+[node name="03" type="Node2D" unique_id=1124018702]
+
+[node name="levelBounds" type="Node2D" parent="." unique_id=2087980810]
+z_index = 256
+position = Vector2(-63, -49)
+scale = Vector2(1.4517561, 1.0015253)
+script = ExtResource("1_vv2jw")
+metadata/_custom_type_script = "uid://csyrsgmnk146e"
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=2007514178]
+tile_map_data = PackedByteArray("AAAAAAQAAQAQAAsAAAABAAQAAQARAAsAAAACAAQAAQASAAsAAAADAAQAAQATAAsAAAAAAAIAAQAQAAsAAAABAAIAAQARAAsAAAACAAIAAQASAAsAAAADAAIAAQATAAsAAAAAAAEAAQAQAAYAAAABAAEAAQARAAYAAAACAAEAAQASAAYAAAADAAEAAQATAAYAAAA=")
+tile_set = ExtResource("2_vv2jw")
+collision_visibility_mode = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2117129364]
+tile_map_data = PackedByteArray("AAD//wYAAQAVAAEAAAAAAAYAAQAVAAQAAAABAAYAAQAVAAEAAAACAAYAAQAVAAEAAAADAAYAAQAVAAEAAAAEAAYAAQAVAAQAAAAFAAYAAQAVAAEAAAAGAAYAAQAVAAQAAAAHAAYAAQAVAAEAAAD//wcAAQAVAAEAAAAAAAcAAQAVAAEAAAABAAcAAQAVAAQAAAACAAcAAQAVAAEAAAADAAcAAQAVAAEAAAAEAAcAAQAVAAQAAAAFAAcAAQAVAAQAAAAGAAcAAQAVAAQAAAAHAAcAAQAVAAEAAAAIAAgAAQATAAUAAAAIAAcAAQAWAAQAAAAIAAYAAQAWAAQAAAAIAAUAAQATAAAAAAAHAAgAAQAVAAUAAAAHAAUAAQAVAAAAAAAGAAgAAQAVAAUAAAAGAAUAAQAVAAAAAAAFAAgAAQAVAAUAAAAFAAUAAQAVAAAAAAAEAAgAAQAVAAUAAAAEAAUAAQAVAAAAAAADAAgAAQAVAAUAAAADAAUAAQAVAAAAAAACAAgAAQAVAAUAAAACAAUAAQAVAAAAAAABAAgAAQAVAAUAAAABAAUAAQAVAAAAAAAAAAgAAQAVAAUAAAAAAAUAAQAVAAAAAAD//wgAAQAVAAUAAAD//wUAAQAVAAAAAAD+/wgAAQAUAAUAAAD+/wcAAQATAAMAAAD+/wYAAQATAAMAAAD+/wUAAQAUAAAAAAA=")
+tile_set = ExtResource("2_vv2jw")
+
+[node name="LevelTransition" parent="." unique_id=1247856821 instance=ExtResource("2_biydo")]
+position = Vector2(16, -24)
+size = 4
+location = 2
+target_level = "uid://bjo6rcj281u5y"
+target_area_name = "LevelTransition2"
