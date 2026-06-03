@@ -20,6 +20,11 @@ func _ready() -> void:
 	_camera.limit_top = int(global_position.y)
 	_camera.limit_right = int(global_position.x) + width
 	_camera.limit_bottom = int(global_position.y) + height
+	print("global_position", global_position)
+	print("camera limit_left", _camera.limit_left)
+	print("camera limit_top", _camera.limit_top)
+	print("camera limit_right", _camera.limit_right)
+	print("camera limit_bottom", _camera.limit_bottom)
 	#update camera
 	pass
 

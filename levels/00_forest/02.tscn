@@ -12,7 +12,7 @@ z_index = 256
 position = Vector2(0, -384)
 script = ExtResource("1_epyyu")
 width = 2048
-height = 494
+height = 590
 metadata/_custom_type_script = "uid://csyrsgmnk146e"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=246934063]

@@ -34,7 +34,7 @@ func transition_scene(new_scene : String,
 	await get_tree().physics_frame
 	
 	self.call_deferred(&"_change_scene", new_scene)
-	#self.call_deferred("")
+	
 	
 	await get_tree().scene_changed
 	
