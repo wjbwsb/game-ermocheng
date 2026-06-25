@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cpbrly8or27e2" path="res://player/player.tscn" id="2_pu3y4"]
 [ext_resource type="Script" uid="uid://csyrsgmnk146e" path="res://general/scripts/level_bounds.gd" id="3_1pu88"]
 [ext_resource type="PackedScene" uid="uid://cumo6y6ijtiri" path="res://general/level_transition/level_transition.tscn" id="4_vhcel"]
+[ext_resource type="PackedScene" uid="uid://brhfmoeia5rkq" path="res://levels/props/plant.tscn" id="5_qmxb0"]
+[ext_resource type="PackedScene" uid="uid://c6m4223qffie" path="res://levels/props/Torch.tscn" id="6_chwhs"]
+[ext_resource type="Texture2D" uid="uid://djvxiswv57wr0" path="res://levels/tilesets/sprites/light_stream.jpg" id="7_72pnk"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
 colors = PackedColorArray(0.78431374, 0.95686275, 0.89411765, 1, 0.52156866, 0.7411765, 0.7058824, 0)
@@ -14,6 +17,10 @@ width = 256
 height = 256
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_72pnk"]
+blend_mode = 1
+light_mode = 1
 
 [node name="01" type="Node2D" unique_id=1921863288]
 
@@ -49,6 +56,15 @@ tile_map_data = PackedByteArray("AAD+//3/AQAAAAAAAAD+//7/AQAAAAEAAAD+////AQAAAAI
 tile_set = ExtResource("1_fvrtv")
 collision_enabled = false
 
+[node name="Node2D" type="Node2D" parent="Parallax2D" unique_id=2117613282]
+
+[node name="Plant" parent="Parallax2D/Node2D" unique_id=275868482 instance=ExtResource("5_qmxb0")]
+position = Vector2(71, -109)
+
+[node name="Plant2" parent="Parallax2D/Node2D" unique_id=1579387683 instance=ExtResource("5_qmxb0")]
+position = Vector2(203, 20)
+flip_h = true
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=440528726]
 position = Vector2(853.50006, 0)
 scale = Vector2(7.667969, 1)
@@ -82,9 +98,48 @@ target_level = "uid://bjo6rcj281u5y"
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=430815889]
 modulate = Color(0, 0, 0, 1)
-z_index = 2
+z_index = 10
 scroll_scale = Vector2(1.4, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D4" unique_id=398964137]
 tile_map_data = PackedByteArray("AAD9/wAAAQAXAAkAAAD9/wEAAQAXAAoAAAD9/wIAAQAXAAsAAAD9/wMAAQAXAAwAAAD9/wQAAQAXAA0AAAD+/wAAAQAYAAkAAAD+/wEAAQAYAAoAAAD+/wIAAQAYAAsAAAD+/wMAAQAYAAwAAAD+/wQAAQAYAA0AAAD+/wUAAQAYAA4AAAD+/wYAAQAYAA8AAAD//wEAAQAZAAoAAAD//wIAAQAZAAsAAAD//wMAAQAZAAwAAAD//wQAAQAZAA0AAAADAP//AQAXAAkAAAADAAAAAQAXAAoAAAADAAEAAQAXAAsAAAADAAIAAQAXAAwAAAADAAMAAQAXAA0AAAAEAP//AQAYAAkAAAAEAAAAAQAYAAoAAAAEAAEAAQAYAAsAAAAEAAIAAQAYAAwAAAAEAAMAAQAYAA0AAAAEAAQAAQAYAA4AAAAEAAUAAQAYAA8AAAAFAAAAAQAZAAoAAAAFAAEAAQAZAAsAAAAFAAIAAQAZAAwAAAAFAAMAAQAZAA0AAAALAP7/AQAXAAkAAAALAP//AQAXAAoAAAALAAAAAQAXAAsAAAALAAEAAQAXAAwAAAALAAIAAQAXAA0AAAAMAP7/AQAYAAkAAAAMAP//AQAYAAoAAAAMAAAAAQAYAAsAAAAMAAEAAQAYAAwAAAAMAAIAAQAYAA0AAAAMAAMAAQAYAA4AAAAMAAQAAQAYAA8AAAANAP//AQAZAAoAAAANAAAAAQAZAAsAAAANAAEAAQAZAAwAAAANAAIAAQAZAA0AAAAUAP3/AQAXAAkAAAAUAP7/AQAXAAoAAAAUAP//AQAXAAsAAAAUAAAAAQAXAAwAAAAUAAEAAQAXAA0AAAAVAP3/AQAYAAkAAAAVAP7/AQAYAAoAAAAVAP//AQAYAAsAAAAVAAAAAQAYAAwAAAAVAAEAAQAYAA0AAAAVAAIAAQAYAA4AAAAVAAMAAQAYAA8AAAAWAP7/AQAZAAoAAAAWAP//AQAZAAsAAAAWAAAAAQAZAAwAAAAWAAEAAQAZAA0AAAAhAP//AQAXAAkAAAAhAAAAAQAXAAoAAAAhAAEAAQAXAAsAAAAhAAIAAQAXAAwAAAAhAAMAAQAXAA0AAAAiAP//AQAYAAkAAAAiAAAAAQAYAAoAAAAiAAEAAQAYAAsAAAAiAAIAAQAYAAwAAAAiAAMAAQAYAA0AAAAiAAQAAQAYAA4AAAAiAAUAAQAYAA8AAAAjAAAAAQAZAAoAAAAjAAEAAQAZAAsAAAAjAAIAAQAZAAwAAAAjAAMAAQAZAA0AAAArAP//AQAXAAkAAAArAAAAAQAXAAoAAAArAAEAAQAXAAsAAAArAAIAAQAXAAwAAAArAAMAAQAXAA0AAAAsAP//AQAYAAkAAAAsAAAAAQAYAAoAAAAsAAEAAQAYAAsAAAAsAAIAAQAYAAwAAAAsAAMAAQAYAA0AAAAsAAQAAQAYAA4AAAAsAAUAAQAYAA8AAAAtAAAAAQAZAAoAAAAtAAEAAQAZAAsAAAAtAAIAAQAZAAwAAAAtAAMAAQAZAA0AAAAzAP//AQAXAAkAAAAzAAAAAQAXAAoAAAAzAAEAAQAXAAsAAAAzAAIAAQAXAAwAAAAzAAMAAQAXAA0AAAA0AP//AQAYAAkAAAA0AAAAAQAYAAoAAAA0AAEAAQAYAAsAAAA0AAIAAQAYAAwAAAA0AAMAAQAYAA0AAAA0AAQAAQAYAA4AAAA0AAUAAQAYAA8AAAA1AAAAAQAZAAoAAAA1AAEAAQAZAAsAAAA1AAIAAQAZAAwAAAA1AAMAAQAZAA0AAAA=")
 tile_set = ExtResource("1_fvrtv")
+
+[node name="props" type="Node2D" parent="." unique_id=616630331]
+
+[node name="Torch" parent="props" unique_id=1061870124 instance=ExtResource("6_chwhs")]
+position = Vector2(27, 76)
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=385311232]
+z_index = 5
+scroll_scale = Vector2(1.2, 1)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax2D5" unique_id=1662336662]
+modulate = Color(0.8627451, 0.7764706, 0.4627451, 0.3529412)
+z_index = 4
+material = SubResource("CanvasItemMaterial_72pnk")
+position = Vector2(1000.36707, -282.47314)
+rotation = 0.24454749
+scale = Vector2(0.60397637, 1.0095541)
+texture = ExtResource("7_72pnk")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax2D5" unique_id=1533730824]
+modulate = Color(0.8627451, 0.7764706, 0.4627451, 0.3529412)
+z_index = 4
+material = SubResource("CanvasItemMaterial_72pnk")
+position = Vector2(679.0579, -283.26862)
+rotation = 0.38536686
+scale = Vector2(0.3010194, 1.041389)
+texture = ExtResource("7_72pnk")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D5" unique_id=1834747979]
+modulate = Color(0.8627451, 0.7764706, 0.4627451, 0.3529412)
+z_index = 4
+material = SubResource("CanvasItemMaterial_72pnk")
+position = Vector2(443, -286)
+rotation = 0.3820476
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("7_72pnk")
+offset = Vector2(0, 256)

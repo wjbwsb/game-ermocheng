@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://csyrsgmnk146e" path="res://general/scripts/level_bounds.gd" id="1_epyyu"]
 [ext_resource type="PackedScene" uid="uid://cpbrly8or27e2" path="res://player/player.tscn" id="4_o5ap7"]
 [ext_resource type="PackedScene" uid="uid://cumo6y6ijtiri" path="res://general/level_transition/level_transition.tscn" id="4_s2tn3"]
+[ext_resource type="PackedScene" uid="uid://c6m4223qffie" path="res://levels/props/Torch.tscn" id="5_o5ap7"]
 
 [node name="02" type="Node2D" unique_id=1965401446]
 
@@ -32,3 +33,10 @@ target_level = "uid://eylgdofwlxrh"
 
 [node name="Player" parent="." unique_id=1054229997 instance=ExtResource("4_o5ap7")]
 position = Vector2(114, -15)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1692879135]
+color = Color(0.70387197, 0.47691965, 0.5308489, 1)
+blend_mode = 1
+
+[node name="Torch" parent="." unique_id=1061870124 instance=ExtResource("5_o5ap7")]
+position = Vector2(131, 3)
